@@ -1,7 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://lqkdsnd6loqd"]
+[gd_scene load_steps=17 format=3 uid="uid://lqkdsnd6loqd"]
 
 [ext_resource type="Texture2D" uid="uid://phjkdbmhlxx8" path="res://Art/Sprite/Player Sprite/Idle/idle_down.png" id="1_e5kic"]
 [ext_resource type="Script" uid="uid://djks275ypaptk" path="res://Entities/Player/Player.gd" id="1_ww0jn"]
+[ext_resource type="Script" uid="uid://c6cmdcu8cmgv4" path="res://Scripts/StateMachine/FiniteStateMachine.gd" id="3_vweq0"]
+[ext_resource type="Script" uid="uid://crgjyfwha3al6" path="res://Entities/Player/PlayerStateMachine/IdleState.gd" id="4_1des2"]
+[ext_resource type="Script" uid="uid://b8upb5b2ax51m" path="res://Entities/Player/PlayerStateMachine/RunningState.gd" id="5_t38ms"]
+[ext_resource type="Script" uid="uid://bsicoccfsuoxx" path="res://Entities/Player/PlayerStateMachine/WalkingState.gd" id="6_hj1c0"]
 
 [sub_resource type="Animation" id="Animation_x44r4"]
 resource_name = "idle_down"
@@ -63,3 +67,19 @@ shape = SubResource("CapsuleShape2D_e5kic")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+
+[node name="FiniteStateMachine" type="Node" parent="."]
+script = ExtResource("3_vweq0")
+metadata/_custom_type_script = "uid://c6cmdcu8cmgv4"
+
+[node name="IdleState" type="Node" parent="FiniteStateMachine"]
+script = ExtResource("4_1des2")
+metadata/_custom_type_script = "uid://crgjyfwha3al6"
+
+[node name="WalkingState" type="Node" parent="FiniteStateMachine"]
+script = ExtResource("6_hj1c0")
+metadata/_custom_type_script = "uid://bsicoccfsuoxx"
+
+[node name="RunningState" type="Node" parent="FiniteStateMachine"]
+script = ExtResource("5_t38ms")
+metadata/_custom_type_script = "uid://b8upb5b2ax51m"
