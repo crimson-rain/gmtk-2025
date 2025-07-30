@@ -9,7 +9,7 @@ extends CharacterBody2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 # Handles the Physics Process in the Game, Such as Movement Etc.
-func _process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	movement()
 
 # Handles the Movement of the Player Currently Manages 4D Movement
@@ -21,4 +21,8 @@ func movement() -> void:
 	else:
 		velocity = direction * SPEED
 	
+	update_animation(direction)
 	move_and_slide()
+
+func update_animation(_direction: Vector2) -> void:
+	pass

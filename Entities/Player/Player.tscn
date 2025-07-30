@@ -1,7 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://lqkdsnd6loqd"]
+[gd_scene load_steps=13 format=3 uid="uid://lqkdsnd6loqd"]
 
 [ext_resource type="Texture2D" uid="uid://phjkdbmhlxx8" path="res://Art/Sprite/Player Sprite/Idle/idle_down.png" id="1_e5kic"]
-[ext_resource type="Script" uid="uid://djks275ypaptk" path="res://Entities/Player/player.gd" id="1_ww0jn"]
+[ext_resource type="Script" uid="uid://djks275ypaptk" path="res://Entities/Player/Player.gd" id="1_ww0jn"]
+
+[sub_resource type="Animation" id="Animation_x44r4"]
+resource_name = "idle_down"
+
+[sub_resource type="Animation" id="Animation_hj1c0"]
+resource_name = "idle_left"
+
+[sub_resource type="Animation" id="Animation_761t5"]
+resource_name = "idle_right"
+
+[sub_resource type="Animation" id="Animation_t38ms"]
+resource_name = "idle_up"
+
+[sub_resource type="Animation" id="Animation_vweq0"]
+resource_name = "walk_down"
+
+[sub_resource type="Animation" id="Animation_1des2"]
+resource_name = "walk_left"
+
+[sub_resource type="Animation" id="Animation_an6q6"]
+resource_name = "walk_right"
+
+[sub_resource type="Animation" id="Animation_ww0jn"]
+resource_name = "walk_up"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hacra"]
+_data = {
+&"idle_down": SubResource("Animation_x44r4"),
+&"idle_left": SubResource("Animation_hj1c0"),
+&"idle_right": SubResource("Animation_761t5"),
+&"idle_up": SubResource("Animation_t38ms"),
+&"walk_down": SubResource("Animation_vweq0"),
+&"walk_left": SubResource("Animation_1des2"),
+&"walk_right": SubResource("Animation_an6q6"),
+&"walk_up": SubResource("Animation_ww0jn")
+}
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e5kic"]
 radius = 6.0
@@ -17,6 +53,9 @@ hframes = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite2D")
+libraries = {
+&"": SubResource("AnimationLibrary_hacra")
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -1)
