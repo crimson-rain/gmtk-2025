@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://lqkdsnd6loqd"]
+
+[ext_resource type="Texture2D" uid="uid://phjkdbmhlxx8" path="res://Art/Sprite/Player Sprite/Idle/idle_down.png" id="1_e5kic"]
+[ext_resource type="Script" uid="uid://djks275ypaptk" path="res://Entities/Player/player.gd" id="1_ww0jn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e5kic"]
+radius = 6.0
+height = 22.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_ww0jn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+texture = ExtResource("1_e5kic")
+hframes = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -1)
+shape = SubResource("CapsuleShape2D_e5kic")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
