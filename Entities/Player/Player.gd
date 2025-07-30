@@ -4,7 +4,6 @@ extends CharacterBody2D
 @export var SPEED: float = 145.0
 # Acceleration of the Character, Increases the Speed with a Multiplier
 @export var ACCELERATION: float = 15.0
-
 # Animation Player
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 

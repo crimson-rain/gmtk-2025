@@ -1,14 +1,14 @@
 extends State
 class_name Idle
 
-func Enter():
+func enter():
 	print("Entered Idle State")
 
-func Update(_delta: float):
+func update(_delta: float):
 	print("Update Idle State")
-	
-func PhysicsUpdate(_delta: float):
+
+func physics_update(_delta: float):
 	print("Physics Update Idle State")
 
-func Exit():
+func exit():
 	print("Exit Idle State")

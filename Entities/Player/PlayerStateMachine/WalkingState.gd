@@ -1,14 +1,14 @@
 extends State
 class_name Walking
 
-func Enter():
+func enter():
 	print("Entered Walking State")
 
-func Update(_delta: float):
+func update(_delta: float):
 	print("Update Walking State")
 	
-func PhysicsUpdate(_delta: float):
+func physics_update(_delta: float):
 	print("Physics Update Walking State")
 
-func Exit():
+func exit():
 	print("Exit Walking State")

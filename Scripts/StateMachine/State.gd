@@ -4,16 +4,16 @@ class_name State
 signal Transitioned
 
 # Called when entering the state
-func Enter():
+func enter():
 	print("Enter")
 
 # Called every update
-func Update(_delta: float):
+func update(_delta: float):
 	print("Update")
 
-func PhysicsUpdate(_delta: float):
+func physics_update(_delta: float):
 	print("Physics Update")
 
 # Called when exiting the state
-func Exit():
+func exit():
 	print("Exit")

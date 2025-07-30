@@ -13,16 +13,16 @@ func _ready() -> void:
 			child.Transitioned.connect(switch_state)
 	
 	if initial_state:
-		initial_state.Enter()
+		initial_state.enter()
 		current_state = initial_state
 
 func _process(delta: float) -> void:
 	if current_state:
-		current_state.Update(delta)
+		current_state.update(delta)
 
 func _physics_process(delta: float) -> void:
 	if current_state:
-		current_state.PhysicsUpdate(delta)
+		current_state.physics_update(delta)
 
 func switch_state(state, new_state_name) -> void:
 	if state != current_state:
@@ -33,7 +33,7 @@ func switch_state(state, new_state_name) -> void:
 		return
 	
 	if current_state:
-		current_state.Exit()
+		current_state.exit()
 	
-	new_state.Enter()
+	new_state.enter()
 	current_state = new_state
