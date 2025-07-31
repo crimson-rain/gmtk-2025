@@ -1,5 +1,5 @@
 extends State
-class_name Walking
+class_name PlayerSneak
 
 @onready var player: CharacterBody2D = $"../.."
 
