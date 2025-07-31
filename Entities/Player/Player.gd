@@ -6,3 +6,6 @@ extends CharacterBody2D
 @export var ACCELERATION: float = 15.0
 # Animation Player
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+# Gets the last direction the player faced for idle animation
+var last_direction: Vector2
