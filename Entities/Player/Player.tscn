@@ -471,7 +471,3 @@ metadata/_custom_type_script = "uid://crgjyfwha3al6"
 [node name="Walking" type="Node" parent="FiniteStateMachine"]
 script = ExtResource("6_hj1c0")
 metadata/_custom_type_script = "uid://c0fttxic2d2fg"
-
-[node name="Sneak" type="Node" parent="FiniteStateMachine"]
-script = ExtResource("6_hj1c0")
-metadata/_custom_type_script = "uid://c0fttxic2d2fg"
