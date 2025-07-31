@@ -5,7 +5,7 @@ class_name Idle
 
 func enter():
 	if player.animation_player:
-		player.animation_player.play("idle_up")
+		update_animation()
 
 func update(_delta: float):
 	pass
@@ -15,6 +15,22 @@ func physics_update(_delta: float):
 	
 	if movement != Vector2.ZERO:
 		Transitioned.emit(self, "walking")
+		return
+
+func update_animation():
+	
+	var animation_map = {
+		Vector2(0, -1): "idle_up",
+		Vector2(0, 1): "idle_down",
+		Vector2(-1, -1): "idle_left_up",
+		Vector2(1, -1): "idle_right_up",
+		Vector2(-1, 1): "idle_left_down",
+		Vector2(1, 1): "idle_right_down",
+		Vector2(-1, 0): "idle_left_down",
+		Vector2(1, 0): "idle_right_down"
+	}
+	
+	player.animation_player.play(animation_map[player.last_direction])
 
 func exit():
 	pass

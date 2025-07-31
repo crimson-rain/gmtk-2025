@@ -16,14 +16,17 @@ func physics_update(_delta: float) -> void:
 		Transitioned.emit(self, "idle")
 		return
 	
-	player.velocity = movement.normalized() * player.SPEED
+	player.velocity = movement * player.SPEED
 	update_animation(movement)
+	player.move_and_slide()
+	print(player.position)
 
 func exit() -> void:
 	pass
 
 func update_animation(direction: Vector2):
 	direction = direction.round()
+	player.last_direction = direction
 	
 	var animation_map = {
 		Vector2(0, -1): "walk_up",
