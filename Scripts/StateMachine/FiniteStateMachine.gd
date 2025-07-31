@@ -29,6 +29,7 @@ func switch_state(state, new_state_name) -> void:
 		return
 	
 	var new_state = states.get(new_state_name.to_lower())
+	
 	if !new_state:
 		return
 	
