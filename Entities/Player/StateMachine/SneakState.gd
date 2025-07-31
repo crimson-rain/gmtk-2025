@@ -29,7 +29,7 @@ func handle_movement() -> void:
 		return
 	
 	
-	player.velocity = movement * player.SPEED
+	player.velocity = movement * (player.SPEED * 0.8)
 	update_animation(movement)
 	player.move_and_slide()
 
