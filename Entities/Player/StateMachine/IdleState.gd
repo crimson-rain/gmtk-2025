@@ -11,6 +11,9 @@ func update(_delta: float):
 	pass
 
 func physics_update(_delta: float):
+	handle_movement()
+
+func handle_movement():
 	var movement: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	
 	if movement != Vector2.ZERO:

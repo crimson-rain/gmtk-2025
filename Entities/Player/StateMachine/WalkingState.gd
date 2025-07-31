@@ -8,8 +8,15 @@ func enter() -> void:
 
 func update(_delta: float) -> void:
 	pass
-	
+
 func physics_update(_delta: float) -> void:
+	handle_movement()
+
+func exit() -> void:
+	pass
+
+# Handle Movement in this function
+func handle_movement() -> void:
 	var movement: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	
 	if movement == Vector2.ZERO:
@@ -19,9 +26,6 @@ func physics_update(_delta: float) -> void:
 	player.velocity = movement * player.SPEED
 	update_animation(movement)
 	player.move_and_slide()
-
-func exit() -> void:
-	pass
 
 # We use a animation map to avoid becoming YandereDev
 func update_animation(direction: Vector2):
