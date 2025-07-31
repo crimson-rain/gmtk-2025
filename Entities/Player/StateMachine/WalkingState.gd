@@ -18,6 +18,11 @@ func exit() -> void:
 # Handle Movement in this function
 func handle_movement() -> void:
 	var movement: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	var sneak: bool = Input.is_action_pressed("sneak")
+	
+	if movement != Vector2.ZERO and sneak == true:
+		Transitioned.emit(self, "sneak")
+		return
 	
 	if movement == Vector2.ZERO:
 		Transitioned.emit(self, "idle")

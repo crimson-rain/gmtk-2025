@@ -19,9 +19,15 @@ func exit() -> void:
 func handle_movement() -> void:
 	var movement: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	
+	var sneak: bool = Input.is_action_just_released("sneak")
+	
+	if movement != Vector2.ZERO and sneak == true:
+		Transitioned.emit(self, "walking")
+	
 	if movement == Vector2.ZERO:
 		Transitioned.emit(self, "idle")
 		return
+	
 	
 	player.velocity = movement * player.SPEED
 	update_animation(movement)
@@ -32,7 +38,7 @@ func update_animation(direction: Vector2):
 	direction = direction.round()
 	player.last_direction = direction
 	
-	player.animation_player.speed_scale = 0.55
+	player.animation_player.speed_scale = 0.7
 	
 	var animation_map = {
 		Vector2(0, -1): "sneak_up",
