@@ -673,3 +673,10 @@ metadata/_custom_type_script = "uid://c0fttxic2d2fg"
 [node name="Sneak" type="Node" parent="FiniteStateMachine"]
 script = ExtResource("20_vcmon")
 metadata/_custom_type_script = "uid://cebi7q00pwlyj"
+
+[node name="GhostTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]

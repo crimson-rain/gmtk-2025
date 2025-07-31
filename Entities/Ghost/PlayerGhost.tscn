@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkpa8ju2u7twe"]
+
+[ext_resource type="Script" uid="uid://cd6y63g18np24" path="res://Entities/Ghost/PlayerGhost.gd" id="1_7dyc3"]
+[ext_resource type="Texture2D" uid="uid://phjkdbmhlxx8" path="res://Assets/Sprite/Player Sprite/Idle/idle_down.png" id="2_833md"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e5kic"]
+radius = 6.0
+height = 22.0
+
+[node name="Ghost" type="CharacterBody2D"]
+z_index = 255
+script = ExtResource("1_7dyc3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0.854463, 0.868518, 0.486275)
+position = Vector2(0, -1)
+texture = ExtResource("2_833md")
+hframes = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -1)
+shape = SubResource("CapsuleShape2D_e5kic")

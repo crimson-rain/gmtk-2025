@@ -28,8 +28,11 @@ func handle_movement() -> void:
 		Transitioned.emit(self, "idle")
 		return
 	
-	
 	player.velocity = movement * (player.SPEED * 0.8)
+	
+	var action = GhostData.new(player.velocity)
+	player.recorded_actions.append(action)
+	
 	update_animation(movement)
 	player.move_and_slide()
 
