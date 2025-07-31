@@ -1,5 +1,5 @@
 extends State
-class_name PlayerIdle
+class_name PlayerIdleState
 
 @onready var player: CharacterBody2D = $"../.."
 

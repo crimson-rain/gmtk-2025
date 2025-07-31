@@ -7,6 +7,9 @@ var is_playback: bool = true
 var start_position: Vector2
 var player_global: Vector2
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+
 func _physics_process(delta: float) -> void:
 	if not is_playback:
 		return
@@ -20,7 +23,6 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2.ZERO
 		is_playback = false
 		print("Ghost Playback Finished")
-		
 
 func setup_playback(_playback_data: Array[GhostData], start_pos: Vector2):
 	self.playback = _playback_data
