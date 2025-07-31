@@ -17,7 +17,9 @@ func physics_update(_delta: float):
 		Transitioned.emit(self, "walking")
 		return
 
+# We use a animation map to avoid becoming YandereDev
 func update_animation():
+	player.animation_player.speed_scale = 0.45
 	
 	var animation_map = {
 		Vector2(0, -1): "idle_up",

@@ -19,14 +19,16 @@ func physics_update(_delta: float) -> void:
 	player.velocity = movement * player.SPEED
 	update_animation(movement)
 	player.move_and_slide()
-	print(player.position)
 
 func exit() -> void:
 	pass
 
+# We use a animation map to avoid becoming YandereDev
 func update_animation(direction: Vector2):
 	direction = direction.round()
 	player.last_direction = direction
+	
+	player.animation_player.speed_scale = 0.55
 	
 	var animation_map = {
 		Vector2(0, -1): "walk_up",
