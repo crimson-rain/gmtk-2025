@@ -1,7 +1,8 @@
-[gd_scene load_steps=32 format=3 uid="uid://lqkdsnd6loqd"]
+[gd_scene load_steps=33 format=3 uid="uid://lqkdsnd6loqd"]
 
 [ext_resource type="Texture2D" uid="uid://phjkdbmhlxx8" path="res://Assets/Sprite/Player Sprite/Idle/idle_down.png" id="1_e5kic"]
 [ext_resource type="Script" uid="uid://djks275ypaptk" path="res://Entities/Player/Player.gd" id="1_ww0jn"]
+[ext_resource type="Texture2D" uid="uid://btkdusiuupw1b" path="res://Assets/Sprite/Player Sprite/Shadow.png" id="3_hl213"]
 [ext_resource type="Texture2D" uid="uid://dthv36soraxk4" path="res://Assets/Sprite/Player Sprite/Idle/idle_left_down.png" id="3_t38ms"]
 [ext_resource type="Script" uid="uid://c6cmdcu8cmgv4" path="res://Scripts/StateMachine/FiniteStateMachine.gd" id="3_vweq0"]
 [ext_resource type="Script" uid="uid://crgjyfwha3al6" path="res://Entities/Player/StateMachine/IdleState.gd" id="4_1des2"]
@@ -444,6 +445,10 @@ script = ExtResource("1_ww0jn")
 position = Vector2(0, -1)
 texture = ExtResource("1_e5kic")
 hframes = 8
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+texture = ExtResource("3_hl213")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite2D")
