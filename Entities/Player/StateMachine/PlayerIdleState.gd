@@ -18,10 +18,6 @@ func handle_movement():
 	
 	if movement != Vector2.ZERO:
 		Transitioned.emit(self, "walking")
-		
-		var action = GhostData.new(Vector2.ZERO, movement.round(), "idle")
-		player.recorded_actions.append(action)
-		
 		return
 
 # We use a animation map to avoid becoming YandereDev
@@ -38,6 +34,9 @@ func update_animation():
 		Vector2(-1, 0): "idle_left_down",
 		Vector2(1, 0): "idle_right_down"
 	}
+	
+	var action = GhostData.new(Vector2.ZERO, player.last_direction, "idle")
+	player.recorded_actions.append(action)
 	
 	player.animation_player.play(animation_map[player.last_direction])
 
