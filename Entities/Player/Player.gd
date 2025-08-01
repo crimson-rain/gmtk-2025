@@ -9,5 +9,22 @@ extends CharacterBody2D
 # Animation Player
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+var ghost_scene = preload("res://Entities/Ghost/PlayerGhost.tscn")
+
 # Gets the last direction the player faced for idle animation
 var last_direction: Vector2
+var start_position: Vector2
+var recorded_actions: Array[GhostData] = []
+
+func _ready() -> void:
+	call_deferred("_set_start_position")
+
+func _set_start_position() -> void:
+	start_position = global_position
+	print(start_position)
+
+func _on_ghost_timer_timeout() -> void:
+	var ghost = ghost_scene.instantiate()
+	get_parent().add_child(ghost)
+	ghost.setup_playback(recorded_actions, start_position)
+	start_position = global_position

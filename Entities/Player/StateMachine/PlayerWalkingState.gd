@@ -1,5 +1,5 @@
 extends State
-class_name PlayerWalk
+class_name PlayerWalkState
 
 @onready var player: CharacterBody2D = $"../.."
 
@@ -29,6 +29,10 @@ func handle_movement() -> void:
 		return
 	
 	player.velocity = movement * player.SPEED
+	
+	var action = GhostData.new(player.velocity, movement.round(), "walking")
+	player.recorded_actions.append(action)
+	
 	update_animation(movement)
 	player.move_and_slide()
 

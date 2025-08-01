@@ -1,5 +1,5 @@
 extends State
-class_name PlayerSneak
+class_name PlayerSneakState
 
 @onready var player: CharacterBody2D = $"../.."
 
@@ -28,8 +28,11 @@ func handle_movement() -> void:
 		Transitioned.emit(self, "idle")
 		return
 	
-	
 	player.velocity = movement * (player.SPEED * 0.8)
+	
+	var action = GhostData.new(player.velocity, movement.round(), "sneak")
+	player.recorded_actions.append(action)
+	
 	update_animation(movement)
 	player.move_and_slide()
 

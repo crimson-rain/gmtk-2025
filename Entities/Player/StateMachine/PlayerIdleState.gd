@@ -1,5 +1,5 @@
 extends State
-class_name PlayerIdle
+class_name PlayerIdleState
 
 @onready var player: CharacterBody2D = $"../.."
 
@@ -35,6 +35,8 @@ func update_animation():
 		Vector2(1, 0): "idle_right_down"
 	}
 	
+	var action = GhostData.new(Vector2.ZERO, player.last_direction, "idle")
+	player.recorded_actions.append(action)
 	player.animation_player.play(animation_map[player.last_direction])
 
 func exit():
