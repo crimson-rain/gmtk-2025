@@ -26,5 +26,5 @@ func _set_start_position() -> void:
 func _on_ghost_timer_timeout() -> void:
 	var ghost = ghost_scene.instantiate()
 	get_parent().add_child(ghost)
-	print(start_position)
 	ghost.setup_playback(recorded_actions, start_position)
+	start_position = global_position

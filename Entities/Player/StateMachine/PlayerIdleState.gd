@@ -37,7 +37,6 @@ func update_animation():
 	
 	var action = GhostData.new(Vector2.ZERO, player.last_direction, "idle")
 	player.recorded_actions.append(action)
-	
 	player.animation_player.play(animation_map[player.last_direction])
 
 func exit():

@@ -21,6 +21,8 @@ func _physics_process(delta: float) -> void:
 		playback_index += 1
 	else:
 		velocity = Vector2.ZERO
+		playback.clear()
+		playback_index = 0
 		is_playback = false
 		print("Ghost Playback Finished")
 
