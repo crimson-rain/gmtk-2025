@@ -13,7 +13,7 @@ config_version=5
 config/name="GMTK25"
 run/main_scene="res://UI/scenes/opening/opening_with_logo.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://qcmj86upf7um"
 
 [autoload]
 
@@ -82,6 +82,13 @@ disable_install_audio_busses=true
 disable_update_check=false
 disable_install_wizard=true
 copy_path="res://UI"
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Environment"
+2d_physics/layer_3="Interactable"
+2d_physics/layer_4="Walls"
 
 [rendering]
 
