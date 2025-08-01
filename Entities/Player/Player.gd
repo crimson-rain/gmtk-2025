@@ -3,6 +3,11 @@ extends CharacterBody2D
 # Speed of the Character, When Moving
 @export var SPEED: float = 145.0
 
+# Used to set the movement and animation speed for dash
+@export var DASH_SPEED_MULTIPLIER: float = 1.75
+
+@onready var can_dash: bool = true
+
 # Acceleration of the Character, Increases the Speed with a Multiplier
 @export var ACCELERATION: float = 15.0
 
