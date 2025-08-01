@@ -30,7 +30,7 @@ func handle_movement() -> void:
 	
 	player.velocity = movement * (player.SPEED * 0.8)
 	
-	var action = GhostData.new(player.velocity)
+	var action = GhostData.new(player.velocity, movement.round(), "sneak")
 	player.recorded_actions.append(action)
 	
 	update_animation(movement)

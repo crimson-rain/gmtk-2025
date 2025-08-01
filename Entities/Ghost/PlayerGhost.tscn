@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dkpa8ju2u7twe"]
+[gd_scene load_steps=41 format=3 uid="uid://dkpa8ju2u7twe"]
 
 [ext_resource type="Script" uid="uid://cd6y63g18np24" path="res://Entities/Ghost/PlayerGhost.gd" id="1_7dyc3"]
 [ext_resource type="Texture2D" uid="uid://phjkdbmhlxx8" path="res://Assets/Sprite/Player Sprite/Idle/idle_down.png" id="2_833md"]
@@ -19,9 +19,6 @@
 [ext_resource type="Texture2D" uid="uid://dncyxlpfh2ywl" path="res://Assets/Sprite/Player Sprite/Walk/walk_right_down.png" id="17_ydt3j"]
 [ext_resource type="Texture2D" uid="uid://d11kqampipely" path="res://Assets/Sprite/Player Sprite/Walk/walk_right_up.png" id="18_tqtk0"]
 [ext_resource type="Texture2D" uid="uid://cckx4y8owtu3c" path="res://Assets/Sprite/Player Sprite/Walk/walk_up.png" id="19_bjk6w"]
-[ext_resource type="Script" uid="uid://c6cmdcu8cmgv4" path="res://Scripts/StateMachine/FiniteStateMachine.gd" id="20_ycn2d"]
-[ext_resource type="Script" uid="uid://fqllynuk4c2k" path="res://Entities/Ghost/StateMachine/GhostIdleState.gd" id="21_bblek"]
-[ext_resource type="Script" uid="uid://djwp4nxibjom0" path="res://Entities/Ghost/StateMachine/GhostWalkingState.gd" id="22_7dyc3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e5kic"]
 radius = 6.0
@@ -650,15 +647,3 @@ libraries = {
 &"": SubResource("AnimationLibrary_hacra")
 }
 speed_scale = 0.45
-
-[node name="FiniteStateMachine" type="Node" parent="."]
-script = ExtResource("20_ycn2d")
-metadata/_custom_type_script = "uid://c6cmdcu8cmgv4"
-
-[node name="GhostIdleState" type="Node" parent="FiniteStateMachine"]
-script = ExtResource("21_bblek")
-metadata/_custom_type_script = "uid://fqllynuk4c2k"
-
-[node name="GhostWalkingState" type="Node" parent="FiniteStateMachine"]
-script = ExtResource("22_7dyc3")
-metadata/_custom_type_script = "uid://djwp4nxibjom0"

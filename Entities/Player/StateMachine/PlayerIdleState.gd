@@ -19,7 +19,7 @@ func handle_movement():
 	if movement != Vector2.ZERO:
 		Transitioned.emit(self, "walking")
 		
-		var action = GhostData.new(Vector2.ZERO)
+		var action = GhostData.new(Vector2.ZERO, movement.round(), "idle")
 		player.recorded_actions.append(action)
 		
 		return
