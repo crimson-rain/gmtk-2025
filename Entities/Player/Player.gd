@@ -27,8 +27,6 @@ var animation_map = {
 
 var ghost_scene = preload("res://Entities/Ghost/PlayerGhost.tscn")
 
-
-
 # Gets the last direction the player faced for idle animation
 var last_direction: Vector2
 var start_position: Vector2
