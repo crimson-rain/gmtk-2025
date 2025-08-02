@@ -5,11 +5,11 @@ class_name GameController
 
 var active_plates: int
 
+signal LevelComplete
+
 func _init() -> void:
 	active_plates = 0
+	LevelComplete.connect(_on_level_complete)
 
-func _process(_delta: float) -> void:
-	if active_plates == expected_pressure_plates:
-		print("All Pressure Plates Active Game Complete")
-	
-	print(active_plates)
+func _on_level_complete() -> void:
+	print("Completed Level")
