@@ -626,7 +626,7 @@ radius = 6.0
 height = 22.0
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
-collision_mask = 15
+collision_mask = 14
 script = ExtResource("1_ww0jn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -671,7 +671,7 @@ metadata/_custom_type_script = "uid://cebi7q00pwlyj"
 process_callback = 0
 
 [node name="GhostTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 2.5
 autostart = true
 
 [connection signal="timeout" from="FiniteStateMachine/Dash/DashCooldownTimer" to="FiniteStateMachine/Dash" method="_on_dash_cooldown_timer_timeout"]

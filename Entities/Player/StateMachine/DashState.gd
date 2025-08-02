@@ -3,6 +3,17 @@ class_name PlayerDash
 
 @onready var player: CharacterBody2D = $"../.."
 
+var animation_map = {
+	Vector2(0, -1): "dash_up",
+	Vector2(0, 1): "dash_down",
+	Vector2(-1, -1): "dash_left_up",
+	Vector2(1, -1): "dash_right_up",
+	Vector2(-1, 1): "dash_left_down",
+	Vector2(1, 1): "dash_right_down",
+	Vector2(-1, 0): "dash_left_down",
+	Vector2(1, 0): "dash_right_down"
+}
+
 func enter() -> void:
 	player.can_dash = false
 	$DashCooldownTimer.start()
@@ -20,7 +31,7 @@ func exit() -> void:
 
 # Handle Movement in this function
 func handle_movement() -> void:
-	player.velocity = player.last_direction * player.SPEED * player.DASH_SPEED_MULTIPLIER
+	player.velocity = player.last_direction.normalized() * player.SPEED * player.DASH_SPEED_MULTIPLIER
 	update_animation(player.last_direction)
 	player.move_and_slide()
 
@@ -29,33 +40,14 @@ func update_animation(direction: Vector2):
 	direction = direction.round()
 	player.last_direction = direction
 	
-	player.animation_player.speed_scale = 0.45*player.DASH_SPEED_MULTIPLIER
+	var action = GhostData.new(player.velocity, direction.round(), "dash")
+	player.recorded_actions.append(action)
 	
-	var animation_map = {
-		Vector2(0, -1): "dash_up",
-		Vector2(0, 1): "dash_down",
-		Vector2(-1, -1): "dash_left_up",
-		Vector2(1, -1): "dash_right_up",
-		Vector2(-1, 1): "dash_left_down",
-		Vector2(1, 1): "dash_right_down",
-		Vector2(-1, 0): "dash_left_down",
-		Vector2(1, 0): "dash_right_down"
-	}
+	player.animation_player.speed_scale = 0.45 * player.DASH_SPEED_MULTIPLIER
 	
 	player.animation_player.play(animation_map[direction])
 
 func _on_dash_animation_finished(anim_name) -> void:
-	var animation_map = {
-		Vector2(0, -1): "dash_up",
-		Vector2(0, 1): "dash_down",
-		Vector2(-1, -1): "dash_left_up",
-		Vector2(1, -1): "dash_right_up",
-		Vector2(-1, 1): "dash_left_down",
-		Vector2(1, 1): "dash_right_down",
-		Vector2(-1, 0): "dash_left_down",
-		Vector2(1, 0): "dash_right_down"
-	}
-	
 	if anim_name == animation_map[player.last_direction]:
 		Transitioned.emit(self, "idle")
 
