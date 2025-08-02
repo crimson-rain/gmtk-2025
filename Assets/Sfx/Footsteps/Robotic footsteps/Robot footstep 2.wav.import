@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://buk0uiu78itdv"
+path="res://.godot/imported/Robot footstep 2.wav-f3a7d11a1fd566852b422e5688ca7982.sample"
+
+[deps]
+
+source_file="res://Assets/Sfx/Footsteps/Robotic footsteps/Robot footstep 2.wav"
+dest_files=["res://.godot/imported/Robot footstep 2.wav-f3a7d11a1fd566852b422e5688ca7982.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
