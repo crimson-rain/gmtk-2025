@@ -10,7 +10,18 @@ var last_direction: Vector2
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-func _physics_process(delta: float) -> void:
+var animation_map = {
+	Vector2(0, -1): "_up",
+	Vector2(0, 1): "_down",
+	Vector2(-1, -1): "_left_up",
+	Vector2(1, -1): "_right_up",
+	Vector2(-1, 1): "_left_down",
+	Vector2(1, 1): "_right_down",
+	Vector2(-1, 0): "_left_down",
+	Vector2(1, 0): "_right_down"
+}
+
+func _physics_process(_delta: float) -> void:
 	if not is_playback:
 		return
 	
@@ -35,34 +46,12 @@ func setup_playback(_playback_data: Array[GhostData], start_pos: Vector2):
 func update_animation() -> void:
 	var movement = playback[playback_index].movement.round()
 	var state = playback[playback_index].state
+	last_direction = movement
 	
 	if state == "walking":
-		last_direction = movement
 		animation_player.speed_scale = 0.55
-		var walk_animation_map = {
-			Vector2(0, -1): "walk_up",
-			Vector2(0, 1): "walk_down",
-			Vector2(-1, -1): "walk_left_up",
-			Vector2(1, -1): "walk_right_up",
-			Vector2(-1, 1): "walk_left_down",
-			Vector2(1, 1): "walk_right_down",
-			Vector2(-1, 0): "walk_left_down",
-			Vector2(1, 0): "walk_right_down"
-		}
-		
-		animation_player.play(walk_animation_map[movement])
 	else:
 		animation_player.speed_scale = 0.45
-		var idle_animation_map = {
-			Vector2(0, -1): "idle_up",
-			Vector2(0, 1): "idle_down",
-			Vector2(-1, -1): "idle_left_up",
-			Vector2(1, -1): "idle_right_up",
-			Vector2(-1, 1): "idle_left_down",
-			Vector2(1, 1): "idle_right_down",
-			Vector2(-1, 0): "idle_left_down",
-			Vector2(1, 0): "idle_right_down",
-			Vector2(0, 0): "idle_down"
-		}
-		
-		animation_player.play(idle_animation_map[last_direction])
+	
+	var animation_string = state + animation_map[movement]
+	animation_player.play(animation_string)

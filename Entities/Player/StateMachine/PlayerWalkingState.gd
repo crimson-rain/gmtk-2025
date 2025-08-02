@@ -28,9 +28,9 @@ func handle_movement() -> void:
 		Transitioned.emit(self, "idle")
 		return
 	
-	player.velocity = movement * player.SPEED
+	player.velocity = movement.normalized() * player.SPEED
 	
-	var action = GhostData.new(player.velocity, movement.round(), "walking")
+	var action = GhostData.new(player.velocity, movement.round(), "walk")
 	player.recorded_actions.append(action)
 	
 	update_animation(movement)

@@ -5,11 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://btkdusiuupw1b" path="res://Assets/Sprite/Player Sprite/Shadow.png" id="3_hl213"]
 [ext_resource type="Texture2D" uid="uid://dthv36soraxk4" path="res://Assets/Sprite/Player Sprite/Idle/idle_left_down.png" id="3_t38ms"]
 [ext_resource type="Script" uid="uid://c6cmdcu8cmgv4" path="res://Scripts/StateMachine/FiniteStateMachine.gd" id="3_vweq0"]
-[ext_resource type="Script" path="res://Entities/Player/StateMachine/PlayerIdleState.gd" id="4_1des2"]
+[ext_resource type="Script" uid="uid://crgjyfwha3al6" path="res://Entities/Player/StateMachine/PlayerIdleState.gd" id="4_1des2"]
 [ext_resource type="Texture2D" uid="uid://da5alaikhftua" path="res://Assets/Sprite/Player Sprite/Idle/idle_right_down.png" id="4_hj1c0"]
 [ext_resource type="Texture2D" uid="uid://ouw3ynjr1q2k" path="res://Assets/Sprite/Player Sprite/Idle/idle_right_up.png" id="5_x44r4"]
 [ext_resource type="Texture2D" uid="uid://cf8nlhyyoe0il" path="res://Assets/Sprite/Player Sprite/Idle/idle_left_up.png" id="6_761t5"]
-[ext_resource type="Script" path="res://Entities/Player/StateMachine/PlayerWalkingState.gd" id="6_hj1c0"]
+[ext_resource type="Script" uid="uid://c0fttxic2d2fg" path="res://Entities/Player/StateMachine/PlayerWalkingState.gd" id="6_hj1c0"]
 [ext_resource type="Texture2D" uid="uid://b4kywt401r804" path="res://Assets/Sprite/Player Sprite/Idle/idle_up.png" id="7_hacra"]
 [ext_resource type="Texture2D" uid="uid://cawv26xcdb3oq" path="res://Assets/Sprite/Player Sprite/Walk/walk_down.png" id="8_jynvv"]
 [ext_resource type="Texture2D" uid="uid://cckx4y8owtu3c" path="res://Assets/Sprite/Player Sprite/Walk/walk_up.png" id="9_lmeus"]
@@ -626,6 +626,7 @@ radius = 6.0
 height = 22.0
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
+collision_mask = 14
 script = ExtResource("1_ww0jn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -670,7 +671,7 @@ metadata/_custom_type_script = "uid://cebi7q00pwlyj"
 process_callback = 0
 
 [node name="GhostTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 2.5
 autostart = true
 
 [connection signal="timeout" from="FiniteStateMachine/Dash/DashCooldownTimer" to="FiniteStateMachine/Dash" method="_on_dash_cooldown_timer_timeout"]

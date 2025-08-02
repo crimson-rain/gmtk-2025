@@ -23,6 +23,7 @@ var recorded_actions: Array[GhostData] = []
 
 func _ready() -> void:
 	call_deferred("_set_start_position")
+	last_direction = Vector2(0, 1)
 
 func _set_start_position() -> void:
 	start_position = global_position
