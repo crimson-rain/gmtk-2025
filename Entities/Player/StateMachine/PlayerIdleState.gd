@@ -27,22 +27,9 @@ func handle_movement():
 
 # We use a animation map to avoid becoming YandereDev
 func update_animation():
-	player.animation_player.speed_scale = 0.45
-	
-	var animation_map = {
-		Vector2(0, -1): "idle_up",
-		Vector2(0, 1): "idle_down",
-		Vector2(-1, -1): "idle_left_up",
-		Vector2(1, -1): "idle_right_up",
-		Vector2(-1, 1): "idle_left_down",
-		Vector2(1, 1): "idle_right_down",
-		Vector2(-1, 0): "idle_left_down",
-		Vector2(1, 0): "idle_right_down"
-	}
-	
 	var action = GhostData.new(Vector2.ZERO, player.last_direction, "idle")
 	player.recorded_actions.append(action)
-	player.animation_player.play(animation_map[player.last_direction])
+	player.play_animation(player.last_direction, "idle")
 
 func exit():
 	pass

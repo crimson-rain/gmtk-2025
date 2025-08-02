@@ -3,17 +3,6 @@ class_name PlayerDash
 
 @onready var player: CharacterBody2D = $"../.."
 
-var animation_map = {
-	Vector2(0, -1): "dash_up",
-	Vector2(0, 1): "dash_down",
-	Vector2(-1, -1): "dash_left_up",
-	Vector2(1, -1): "dash_right_up",
-	Vector2(-1, 1): "dash_left_down",
-	Vector2(1, 1): "dash_right_down",
-	Vector2(-1, 0): "dash_left_down",
-	Vector2(1, 0): "dash_right_down"
-}
-
 func enter() -> void:
 	player.can_dash = false
 	$DashCooldownTimer.start()
@@ -39,16 +28,14 @@ func handle_movement() -> void:
 func update_animation(direction: Vector2):
 	direction = direction.round()
 	player.last_direction = direction
-	
 	var action = GhostData.new(player.velocity, direction.round(), "dash")
 	player.recorded_actions.append(action)
 	
-	player.animation_player.speed_scale = 0.45 * player.DASH_SPEED_MULTIPLIER
-	
-	player.animation_player.play(animation_map[direction])
+	player.play_animation(direction, "dash")
 
-func _on_dash_animation_finished(anim_name) -> void:
-	if anim_name == animation_map[player.last_direction]:
+func _on_dash_animation_finished(anim_name: String) -> void:
+	var last_anim = "dash" + player.animation_map[player.last_direction]
+	if anim_name == last_anim:
 		Transitioned.emit(self, "idle")
 
 func _on_dash_cooldown_timer_timeout() -> void:

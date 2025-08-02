@@ -50,6 +50,8 @@ func update_animation() -> void:
 	
 	if state == "walking":
 		animation_player.speed_scale = 0.55
+	elif state == "dash":
+		animation_player.speed_scale = 0.45 * 1.75
 	else:
 		animation_player.speed_scale = 0.45
 	

@@ -23,7 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://fk5k0ydlj85h" path="res://Assets/Sprite/Player Sprite/Dash/Dash_left_Down.png" id="18_l80rc"]
 [ext_resource type="Texture2D" uid="uid://bvdgdc1cqmca0" path="res://Assets/Sprite/Player Sprite/Dash/Dash_right_Up.png" id="19_l2mqv"]
 [ext_resource type="Texture2D" uid="uid://ckcpv4iqg55mw" path="res://Assets/Sprite/Player Sprite/Dash/Dash_right_Down.png" id="20_mgqku"]
-[ext_resource type="Script" uid="uid://cebi7q00pwlyj" path="res://Entities/Player/StateMachine/DashState.gd" id="20_vcmon"]
+[ext_resource type="Script" uid="uid://cebi7q00pwlyj" path="res://Entities/Player/StateMachine/PlayerDashState.gd" id="20_vcmon"]
 
 [sub_resource type="Animation" id="Animation_hacra"]
 length = 0.001
